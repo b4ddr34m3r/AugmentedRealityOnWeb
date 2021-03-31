@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Augmentend reality</title>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Lalezar&display=swap');
+        
+        .arjs-loader{
+            height: 100%;
+            width: 100%;
+            position: absolute;
+            top: 0;
+            left: 0;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            z-index: 99999;
+            background-color: rgba(255,215,0, 0.8);
+        }
+
+        .arjs-loader div {
+            color: white;
+            font-size: 1.8em;
+            text-align: center;
+            font-family:Lalezar; 
+            text-shadow: #4d4d4d 2px 2px;
+        }
+
+
+    </style>
+</head>
+<body style="margin:0; overflow: hidden;">
+    <script src="https://cdn.jsdelivr.net/gh/aframevr/aframe@1c2407b26c61958baa93967b5412487cd94b290b/dist/aframe-master.min.js"></script>
+    <script src="https://raw.githack.com/AR-js-org/AR.js/master/aframe/build/aframe-ar-nft.js"></script>
+
+    <div class="arjs-loader">
+        <div>... انتظر حتى يتم التحميل </div>
+    </div>
+
+    <a-scene
+    vr-mode-ui="enabled: false;"
+    renderer="LogarithmicDepthBuffer: true;"
+    embedded
+    arjs="trackingMethod: best; sourceType: webcam; debugUIEnabled: false;"
+    >
+        <a-nft
+        type="nft"
+        url="https://arjs-cors-proxy.herokuapp.com/https://raw.githack.com/AR-js-org/AR.js/master/aframe/examples/image-tracking/nft/trex/trex-image/trex"
+        smooth="true"
+        smoothCount="10"
+        smoothTolerance='.01'
+        smoothThreshold='5'>
+
+            <!-- gltf-model is the 3d model -->
+            <a-entity 
+            gltf-model="https://arjs-cors-proxy.herokuapp.com/https://raw.githack.com/AR-js-org/AR.js/master/aframe/examples/image-tracking/nft/trex/scene.gltf"
+            scale="5 5 5" position="50 150 0"></a-entity>
+            </a-entity>
+        
+        </a-nft>
+
+        <a-entity camera></a-entity>
+    </a-scene>
+    
+</body>
+</html>
